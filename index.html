@@ -159,17 +159,17 @@
 <body>
     <div class="container">
         <h1>欢迎访问我们的网站</h1>
-        <p>您当前正在访问静态HTML页面，系统将自动跳转到动态JSP页面。</p>
+        <p>您当前正在访问静态HTML跳转页面，系统将自动跳转到主页面。</p>
         
         <div class="redirect-info">
-            <p>正在准备跳转到 <strong>index.jsp</strong></p>
+            <p>正在准备跳转到 <strong>pages/index.html</strong></p>
             <div class="countdown" id="countdown">5</div>
             <div class="loader"></div>
             <p>如果页面没有自动跳转，请点击下方按钮</p>
         </div>
         
         <div class="buttons">
-            <a href="index.jsp" class="btn btn-primary">立即跳转</a>
+            <a href="pages/index.html" class="btn btn-primary">立即跳转</a>
             <button class="btn btn-secondary" onclick="cancelRedirect()">取消跳转</button>
         </div>
         
@@ -223,6 +223,6 @@
     </script>
     
     <!-- 备用跳转方法：HTML meta refresh -->
-    <meta http-equiv="refresh" content="6;url=index.jsp">
+    <meta http-equiv="refresh" content="6;url=pages/index.html">
 </body>
 </html>
