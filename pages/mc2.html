@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+	<head class="hjt.net">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>mc服务器指南</title>
+		<link rel="icon" href="favicon.ico">
+		<meta name="description" content="整天半吊子和不学无术的坏孩子,梦想成为庄稼地里的读书人">
+		<meta name="keywords" content="黄军涛YO,hjt,黄军涛主页,hjt引导页,zhangyang">
+		<meta name="og:title" contect="黄军涛YO">
+		<meta name="og:type" contect="website">
+		<meta property="og:locale" content="zh_CN">
+		<meta name="og:image" contect="favicon.ico">
+		<meta name="og:url" contect="https://hjt.net">
+		<meta name="og:description" contect="整天半吊子和不学无术的坏孩子,梦想成为庄稼地里的读书人">
+		<meta name="og:site_name" contect="黄军涛YO">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<link rel="stylesheet" href="../static/css/style.css?v=1.33">
+
+		<style>
+			 #copyip{
+                /* position: absolute;
+                right: 0;
+                bottom: 0; */
+                background-image: linear-gradient(90deg,#f7995b 0%,#6daef0 100%);
+                border: none;
+				letter-spacing: 3px;
+                font-size: 40px;
+				font-weight: bold;
+                width: 100%;
+                height: 70px;
+                border-radius: 50px;
+            }
+			#copyip2{
+                /* position: absolute;
+                right: 0;
+                bottom: 0; */
+                background-image: linear-gradient(90deg,#f7995b 0%,#6daef0 100%);
+                border: none;
+				letter-spacing: 3px;
+                font-size: 40px;
+				font-weight: bold;
+                width: 100%;
+                height: 70px;
+                border-radius: 50px;
+            }
+		</style>
+	</head>
+
+<body>
+    <audio autoplay="autopaly" id="audios">
+        <source src="../static/audio/bbby.mp3" type="audio/mp3" /></audio>
+	
+	<div class="contect" >
+		<!-- <img src="favicon.ico" width="50px" height="50px"> -->
+		<div class="welcome">Hello, 教你如何进入 <span class="gradientText">mc服务器</span></div>
+		
+	<div>
+		<img src="../static/mc/MC1.jpg"width="90%" height="90%">
+		<div>
+			<!-- <h1>IP:shijiazhuang-5b072fbb.ofalias.net:56988</h1> -->
+			<button id="copyip">校园网点我复制IP<p style="font-size: small;">更稳定——强烈推荐</p></button>
+			<div style="margin-top:10px ;"><br></div>
+			<button id="copyip2">备用IP—点我复制<p style="font-size: small;">没有校园网请选择</p></button>
+			<input type="text" value="10.124.1.245:25565" id="ip1" style="opacity: 0" readonly>
+			<input type="text" value="shijiazhuang-5b072fbb.ofalias.net:56988" id="ip2" style="opacity: 0" readonly>
+		</div>
+		<img src="../static/mc/MC2.jpg" width="100%" height="100%" >
+        <div style="margin-top:10px ;"><br></div>
+        <img src="../static/mc/bbby.jpg" width="100%" height="100%" >
+	</div>
+
+	</div>
+
+		
+		
+</body>
+<script>
+    // 将以下代码添加到js入口函数内即可
+    document.addEventListener('touchstart', function() {
+        document.getElementById('audios').play()
+    })
+     
+    </script>
+<script>
+	 document.getElementById('copyip').addEventListener('click',function(){
+        var e = document.getElementById('ip1'); 
+        e.select(); // 选择对象 
+        document.execCommand("Copy"); // 执行浏览器复制命令
+        alert("复制成功");    
+    })
+	document.getElementById('copyip2').addEventListener('click',function(){
+        var e = document.getElementById('ip2'); 
+        e.select(); // 选择对象 
+        document.execCommand("Copy"); // 执行浏览器复制命令
+        alert("复制成功");    
+    })
+</script>
+
+<script src="../static/js/script.js?v=1.33"> </script>
+
+<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+<script>LA.init({ id: "KFqltKSkJgQTGD9l", ck: "KFqltKSkJgQTGD9l" })</script>
+
+
+</html>

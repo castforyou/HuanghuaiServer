@@ -1,0 +1,352 @@
+<!doctype html>
+<html>
+<head class="hjt.net">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>留言</title>
+    <link rel="icon" href="favicon.ico">
+    <meta name="description" content="整天半吊子和不学无术的坏孩子,梦想成为庄稼地里的读书人">
+    <meta name="keywords" content="黄军涛YO,hjt,黄军涛主页,hjt引导页,zhangyang">
+    <meta name="og:title" contect="黄军涛YO">
+    <meta name="og:type" contect="website">
+    <meta property="og:locale" content="zh_CN">
+    <meta name="og:image" contect="favicon.ico">
+    <meta name="og:url" contect="https://hjt.net">
+    <meta name="og:description" contect="整天半吊子和不学无术的坏孩子,梦想成为庄稼地里的读书人">
+    <meta name="og:site_name" contect="黄军涛YO">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="../static/css/style.css?v=1.33">
+
+    <style>
+        .messages {
+            margin-top: 50px;
+            width: 100%;
+            padding: 50px 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-color: antiquewhite;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px #00000020;
+        }
+
+        .form {
+            display: flex;
+            justify-content: center;
+            position: relative;
+            flex-direction: column;
+            width: 100%;
+            padding-bottom: 70px;
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: none;
+        }
+
+        input,
+        textarea {
+            border: none;
+            color: black;
+            margin-bottom: 40px;
+            font: 900 40px '';
+            border-radius: 10px;
+            padding: 30px;
+        }
+
+        #username {
+            height: 90px;
+        }
+
+        #message {
+            height: 200px;
+        }
+
+        .messages h1 {
+            width: 100%;
+            text-align: left;
+            margin-bottom: 70px;
+            font-size: 70px;
+            background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 10px;
+        }
+
+        #submitBtn {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            background-image: linear-gradient(90deg, #e0c3fc 0%, #8ec5fc 100%);
+            border: none;
+            font-size: 30px;
+            width: 200px;
+            height: 70px;
+            border-radius: 50px;
+        }
+
+        #messageBoard {
+            width: 100%;
+            text-align: left;
+        }
+
+        @keyframes messageFadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .message {
+            width: 100%;
+            margin: 10px;
+            padding: 10px;
+            opacity: 0;
+            animation: messageFadeIn 0.5s ease forwards;
+            background-image: linear-gradient(90deg, #8ec5fc 0%, #e0c3fc 100%);
+            background-color: #fff;
+            margin: 70px 0;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px #00000026;
+            text-shadow: 0px 0px 20px #ffffff;
+        }
+
+        .message-info {
+            height: 100px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 36px;
+            position: relative;
+        }
+
+        .info {
+            transform: translateY(-30px);
+        }
+        .info2{
+            text-align: right;
+        }
+
+        .info img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 10px #fff solid;
+        }
+
+        strong {
+            position: absolute;
+            width: 800px;
+            letter-spacing: 3px;
+            top: 70px;
+            left: 170px;
+        }
+
+        .message-info span {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        .content {
+            font-size: 36px;
+            margin: 30px;
+            width: 95%;
+        }
+
+
+        @media (max-width: 600px) {
+    .info {
+        transform: scale(0.6);
+    } .info2 {
+                transform: scale(0.6);
+            }
+}
+
+@media (min-width: 601px) and (max-width: 1901px) {
+    .info {
+        transform: scale(0.8);
+    }.info2 {
+         transform: scale(0.8);
+     }
+}
+
+@media (min-width: 1900px) {
+    .info {
+        transform: scale(1);
+    }.info2 {
+         transform: scale(1);
+     }
+}
+    </style>
+
+<!--    <meta http-equiv="refresh" content="5">-->
+
+</head>
+
+<body>
+<!-- <div id="div1" style="display: none;border:10px solid #ff0000;">
+        <button id="delBtn" v-on:click="delBoard()">删除</button>
+
+</div> -->
+
+<!-- <header>
+    <div class="welcome">Hello, 这里是 <span class="gradientText">留言</span></div>
+</header>  -->
+
+<div class="content">
+<div class="welcome">Hello, 这里是 <span class="gradientText">留言</span>
+    <button id="hideBtn" οnclick="showOrHide()" type="button" style="color: white; opacity: 0%;">按钮</button>
+</div>
+<div id="messages" class="messages">
+    <h1>留言板</h1>
+
+
+    <div class="form" ><!--v-model="formData" 不能用于div-->
+        <input type="text" id="username" placeholder="用户名" v-model="formData.name">
+        <textarea id="message" placeholder="留言内容" v-model="formData.message"></textarea>
+        <button id="submitBtn" v-on:click="addBoard();">留言</button><!--等价与@click-->
+    </div>
+
+        <div id="messageBoard">
+            <div class="message" v-for="(message, index) in dataList" :key="message.id" v-if="index<=50"><!--修改index显示条数-->
+                <div class="message-info">
+                    <div class="info">
+                        <img src="favicon.ico" width="50px" height="50px">
+                        <strong>{{ message.name }}</strong> <!-- 每条留言都有一个 name 属性 -->
+                    </div>
+                    <span class="info2"> {{ formatDate(message.date) }}</span> <!-- 每条留言都有一个 date 属性 {{ message.date }}:若这样会是毫秒-->
+
+                    <div class="delDiv" style="display: none;">
+                        <button id="delBtn2" v-on:click="delBoard(message)">删除</button>
+                    </div>
+                </div>
+                <div class="content">{{ message.message }}</div> <!-- 每条留言都有一个 message 属性 -->
+                <!--<span>{{index+1}}</span>--> <!--测试信息条数 以0开始-->
+            </div>
+            <span>仅显示前50条</span>
+        </div>
+    </div>
+    </div>
+
+
+    </body>
+
+    <script src="../static/js/vue.js"></script>
+
+    <script type="text/javascript" src="../static/js/jquery.min.js"></script>
+    <script src="../static/js/axios-0.18.0.js"></script>
+
+
+   <script type="text/javascript">
+           $(document).ready(function() {
+            $("#hideBtn").click(function() {
+                $(".delDiv").toggle();
+            });
+        });
+    </script>
+
+
+
+    <script>
+        var vue = new Vue({
+            el: '#messages',
+            data: {
+                dataList: [],
+                formData: {
+                    name: "",
+                    message: "",
+                    date: ""
+                }
+            },
+            created() {/**/
+                console.log(22)
+                this.getAll();
+            },
+            methods: {
+                resetForm() {
+                    this.formData={};
+                },
+                getAll() {
+                    console.log(11)
+                    axios.get("/boards").then((res) => {
+                        // this.dataList=res.data;
+                        this.dataList = [...res.data].reverse();
+                        console.log(res.data);
+                    });
+                },
+                addBoard(){
+                    alert("发送成功")
+                    var username = this.formData.name;
+                    var message = this.formData.message;
+                    if (message === '') {
+                        alert('请输入内容');
+                        return;
+                    }
+                    console.log("username"+username)
+                    if (username === '') {
+                        console.log("匿名")
+                        username = '匿名';
+                    }
+
+                    // this.formData.data=this.formatDate(this.getCurrentTime());
+                    this.formData.name=username;
+                    this.formData.date = this.getCurrentTime();
+                    console.log(this.formData.data);
+                    console.log("name"+this.formData.name);
+                    console.log(100001)
+                    axios.post("/boards",this.formData).then((res)=>{
+                        if(res.data==1){
+                            this.$message.success("添加成功");
+                        }else {
+                            this.$message.error("添加失败");/* success是绿色的，error是红色的 */
+                        }
+                    }).finally(()=>{
+                        this.getAll();
+                        this.resetForm();
+                        // document.getElementById('username').value = '';
+                        // document.getElementById('message').value = ''; 不起作用
+                    });
+                    console.log(this.getCurrentTime())
+                    location.reload();
+                },
+                delBoard(message) {
+                    if (confirm("您确定要永久删除这个留言吗？")){
+                        console.log(message.id)
+                        axios.delete("/boards/"+message.id).then((res)=>{
+                            if (res.data==1){
+                                alert("删除成功")
+                            }else {
+                                alert("删除失败")
+                            }
+                        }).finally(()=>{
+                            this.getAll();
+                        });
+                    }
+                },
+            getCurrentTime() {
+                var now=new Date();
+                return now.getTime(); //// 返回毫秒级的时间戳
+            },
+            formatDate(timestamp) {
+                var date = new Date(timestamp);
+                var year = date.getFullYear();
+                var month = ('0' + (date.getMonth() + 1)).slice(-2);
+                var day = ('0' + date.getDate()).slice(-2);
+                var hours = ('0' + date.getHours()).slice(-2);
+                var minutes = ('0' + date.getMinutes()).slice(-2);
+                var seconds = ('0' + date.getSeconds()).slice(-2);
+                return year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + ':' + seconds;
+            }
+            /*end*/
+        }
+    })
+
+</script>
+
+<script src="../static/js/script.js?v=1.33"></script>
+
+<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+<script>LA.init({id: "KFqltKSkJgQTGD9l", ck: "KFqltKSkJgQTGD9l"})</script>
+
+</html>
