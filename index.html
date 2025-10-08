@@ -162,7 +162,7 @@
         <p>您当前正在访问静态HTML跳转页面，系统将自动跳转到主页面。</p>
         
         <div class="redirect-info">
-            <p>正在准备跳转到 <strong>pages/index.html</strong></p>
+            <p>正在准备跳转到 <strong>主页</strong></p>
             <div class="countdown" id="countdown">5</div>
             <div class="loader"></div>
             <p>如果页面没有自动跳转，请点击下方按钮</p>
@@ -177,12 +177,12 @@
             <h3>跳转代码实现</h3>
             <code>
                 &lt;!-- HTML meta refresh 跳转 --&gt;<br>
-                &lt;meta http-equiv="refresh" content="5;url=index.jsp"&gt;<br><br>
+                &lt;meta http-equiv="refresh" content="5;url=pages/index.html"&gt;<br><br>
                 
                 &lt;!-- JavaScript 跳转 --&gt;<br>
                 &lt;script&gt;<br>
                 &nbsp;&nbsp;setTimeout(function() {<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;window.location.href = "index.jsp";<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;window.location.href = "pages/index.html";<br>
                 &nbsp;&nbsp;}, 5000);<br>
                 &lt;/script&gt;
             </code>
@@ -201,7 +201,7 @@
             
             if (countdown <= 0) {
                 clearInterval(countdownInterval);
-                window.location.href = "index.jsp";
+                window.location.href = "pages/index.html";
             }
         }, 1000);
         
@@ -217,7 +217,7 @@
         setTimeout(function() {
             // 只有在没有取消跳转的情况下才执行
             if (countdown > 0) {
-                window.location.href = "index.jsp";
+                window.location.href = "pages/index.html";
             }
         }, 5000);
     </script>
